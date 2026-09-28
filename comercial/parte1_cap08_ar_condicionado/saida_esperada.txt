@@ -1,0 +1,8 @@
+19.0 °C, loja aberta: aquecer
+20.5 °C, loja aberta: aquecer
+21.5 °C, loja aberta: aquecer
+22.3 °C, loja aberta: desligado
+23.8 °C, loja aberta: resfriar
+22.6 °C, loja aberta: resfriar
+21.9 °C, loja aberta: desligado
+24.0 °C, loja fechada: desligado

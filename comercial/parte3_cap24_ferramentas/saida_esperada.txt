@@ -1,0 +1,7 @@
+[1] p1 consultar_agenda: {'vagas': 3}
+[2] p2 registrar_encomenda: PRECISA_APROVACAO
+    >> Dona Cida aprovou p2
+[2] p2 registrar_encomenda: {'numero': 'ENC-001'}
+[2] p3 registrar_encomenda: {'numero': 'ENC-001'} (repetido)
+estado: SUCESSO
+resposta: Encomenda ENC-001 confirmada!
