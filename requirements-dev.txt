@@ -1,2 +1,5 @@
 -r requirements.txt
 pytest>=8
+# Capítulo 105 (observabilidade) usa o SDK do OpenTelemetry
+opentelemetry-api>=1.42
+opentelemetry-sdk>=1.42

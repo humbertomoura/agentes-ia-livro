@@ -1,9 +1,5 @@
 name: testes
-
-on:
-  push:
-  pull_request:
-
+on: [push, pull_request]
 jobs:
   pytest:
     runs-on: ubuntu-latest
@@ -16,4 +12,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -r requirements-dev.txt
+      - run: python scripts/extrair_codigo.py --check
       - run: pytest -q
