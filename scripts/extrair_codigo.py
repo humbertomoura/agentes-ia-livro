@@ -38,7 +38,7 @@ SHELL = re.compile(r"\s*(python -m|pip |\$ |uv )")
 
 
 def manuscrito() -> pathlib.Path:
-    docs = sorted((ROOT / "manuscrito").glob("Agentes_IA_v*.docx"),
+    docs = sorted((ROOT / "manuscrito").glob("Agentes_IA_*.docx"),
                   key=lambda p: int(re.search(r"v(\d+)", p.name).group(1)))
     if not docs:
         sys.exit("nenhum manuscrito em manuscrito/")
