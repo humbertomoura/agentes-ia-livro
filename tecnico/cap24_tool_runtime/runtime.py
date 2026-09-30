@@ -5,7 +5,6 @@ from dataclasses import dataclass, field
 from hashlib import sha256
 from typing import Any, Callable
 import json, os, time, uuid
-from openai import OpenAI
 
 SERVICES = {"payments": "degraded", "catalog": "healthy", "identity": "healthy"}
 INCIDENTS: dict[str, dict[str, Any]] = {}
@@ -232,6 +231,7 @@ def resume_run(run: RunState, approvals: ApprovalStore, client: OpenAI,
     run.step += 1
     return continue_run(run, approvals, client, model)
 def start_agent(user_request: str) -> tuple[RunState, ApprovalStore]:
+    from openai import OpenAI
     run = RunState(run_id=str(uuid.uuid4()),
                    history=[{"role": "user", "content": user_request}])
     return run, ApprovalStore()

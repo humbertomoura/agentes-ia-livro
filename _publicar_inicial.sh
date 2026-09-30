@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Publica este repositório no GitHub (rode uma vez, na pasta do repositório).
-# Requer: git e GitHub CLI (https://cli.github.com), com "gh auth login" já feito.
+# ATENÇÃO: rode este script UMA VEZ, numa pasta vazia, para criar o repositório.
+# NÃO rode dentro de um clone existente — o "git init" sobrescreve o histórico.
+#
+# Requer: git e GitHub CLI (https://cli.github.com) com "gh auth login" já feito.
 set -euo pipefail
 NOME="${1:-agentes-ia-livro}"
 

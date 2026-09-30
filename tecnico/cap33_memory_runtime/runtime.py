@@ -3,7 +3,6 @@ from __future__ import annotations
 import hashlib, os, re, sqlite3, uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
-from openai import OpenAI
 
 UTC = timezone.utc
 
@@ -209,6 +208,7 @@ def compact_session(client, model, state):
 
 # --- 33.8 Um turno completo com um LLM real ---
 def run_turn(client, model, store, state, user_text):
+    from openai import OpenAI
     decision = write_gate(user_text, project_id=state.project_id)
     memory_event = {"operation": decision.action, "reason": decision.reason}
     if decision.action == "WRITE" and decision.candidate:
