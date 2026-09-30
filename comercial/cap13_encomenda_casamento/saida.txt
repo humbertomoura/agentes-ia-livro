@@ -1,0 +1,8 @@
+1. Bloqueado - aguardando a Dona Cida
+2. Bloqueado - pedido mudou: aprovar de novo
+3. recusado: julia não aprova
+4. caiu: queda de energia
+5. Sucesso F1 PIX1
+   passos: conferir, calcular, aprovar, reservar, cobrar
+   cobranças feitas: 1
+6. Cancelado | forno liberado: {'F1'} | estorno: {'PIX1'}

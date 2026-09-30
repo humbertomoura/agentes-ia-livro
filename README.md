@@ -1,56 +1,48 @@
 # Agentes de Inteligência Artificial — código do livro
 
-Código-fonte, testes e guias editoriais do livro **Agentes de Inteligência Artificial**, de Humberto Jorge de Moura Costa, em duas versões:
+Este repositório traz todo o código dos livros **Agentes de Inteligência Artificial**
+(edição comercial) e da versão técnica em preparação, com testes automáticos.
 
-- **Técnica** (`tecnico/`): identificadores em inglês, exemplos de engenharia (runtime de tools, memória, RAG).
-- **Comercial** (`comercial/`): identificadores em português, exemplos com a padaria da Dona Cida.
+## Rodar em três minutos
 
-Todo exemplo do livro está aqui e é testado. Na versão comercial, cada exemplo precisa imprimir **exatamente** a saída que aparece no livro.
+    git clone https://github.com/humbertomoura/agentes-ia-livro
+    cd agentes-ia-livro
+    python -m pip install pytest
+    cd comercial/cap13_encomenda_casamento && python demo.py
 
-## Como rodar
+Nenhum exemplo precisa de chave de API, conta em fornecedor ou internet: todos usam um
+modelo simulado. Python 3.10 ou mais novo.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate          # no Windows: .venv\Scripts\activate
-pip install -r requirements-dev.txt
-pytest -q
-```
-
-Os testes não usam chave de API nem internet. Para rodar os exemplos com um modelo de verdade:
-
-```bash
-export OPENAI_API_KEY="sua-chave"   # nunca coloque a chave no código
-export OPENAI_MODEL="gpt-6-astra"   # confira o modelo recomendado na documentação
-python comercial/parte2_cap15_atendente/real.py
-```
-
-## Estrutura
+## O que tem aqui
 
 | Pasta | Conteúdo |
 |---|---|
-| `comercial/parte1_cap08_ar_condicionado` | Agente reativo com histerese |
-| `comercial/parte2_cap15_atendente` | Ciclo de tool calling (simulado e real) |
-| `comercial/parte3_cap24_ferramentas` | Registro, aprovação, bloqueio e idempotência |
-| `comercial/parte4_cap33_caderno` | Memória com portões, substituição e resumo acumulado |
-| `comercial/parte5_cap42_pasta` | RAG híbrido, filtro de acesso, abstenção e citações |
-| `tecnico/cap15_agent_loop` | Loop real (Responses API) e decisor simulado |
-| `tecnico/cap24_tool_runtime` | Runtime de tools com aprovação por chamada |
-| `tecnico/cap33_memory_runtime` | Runtime de contexto e memória |
-| `tecnico/cap42_rag_runtime` | Runtime híbrido de RAG |
-| `tests/` | Testes de todas as versões |
-| `docs/` | Guia do livro, estrutura proposta e pendências |
+| `comercial/cap13_encomenda_casamento` | Workflow durável com aprovação, retomada e compensação |
+| `comercial/cap30_projeto_final` | Projeto final: ferramentas, memória, RAG, portões e trilha |
+| `tecnico/` | Listagens dos capítulos de implementação da versão técnica |
+| `tests/` | Testes de todas as listagens |
+| `essencial/` | Fonte do manuscrito comercial e gerador do docx |
+| `docs/` | Guia do livro, revisão técnica e pendências |
+| `manuscrito/` | Versões do manuscrito |
 
-## Situação das partes
+## Testes
 
-| Parte | Técnica | Comercial |
-|---|---|---|
-| I — Fundamentos | revisada | pronta |
-| II — Agent Loop | revisada | pronta |
-| III — Tools | revisada | pronta |
-| IV — Contexto e Memória | revisada | pronta |
-| V — RAG | revisada (v10) | pronta |
-| VI em diante | a escrever | após a curadoria final |
+    pytest                              # toda a versão técnica
+    ./tests_comercial_novos.sh          # os exemplos do livro comercial
+
+Os testes conferem, entre outras coisas, que a saída impressa no livro é exatamente a que
+o código produz. Se um exemplo do livro não bater com o repositório, é erro nosso: abra uma
+issue.
 
 ## Licença
 
-O **código** deste repositório está sob a licença MIT (ver `LICENSE`). O **texto do livro** não faz parte do repositório e tem todos os direitos reservados.
+O **código** deste repositório está sob a licença MIT (veja `LICENSE-CODE`): use, copie,
+modifique e distribua à vontade, inclusive em projetos comerciais.
+
+O **texto, as figuras e o conteúdo dos livros** não estão cobertos por essa licença. São
+© 2026 Humberto Jorge de Moura Costa, todos os direitos reservados.
+
+## Errata e atualizações
+
+Correções ficam em [`ERRATA.md`](ERRATA.md) e o histórico em [`CHANGELOG.md`](CHANGELOG.md).
+Capítulos sobre plataformas e protocolos envelhecem rápido; atualizações são anunciadas aqui.

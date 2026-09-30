@@ -6,11 +6,13 @@ Documento de referência para manter a consistência entre partes, versões e co
 
 | | Versão técnica | Versão comercial |
 |---|---|---|
-| Título de trabalho | *Agentes de Inteligência Artificial: Fundamentos, Arquiteturas, Protocolos e Sistemas Agênticos em Produção* | *Agentes de Inteligência Artificial: um guia descomplicado para entender e construir agentes de IA, com exemplos do dia a dia* |
+| Título de trabalho | *Agentes de Inteligência Artificial: Fundamentos, Arquiteturas, Protocolos e Sistemas Agênticos em Produção* | *Agentes de Inteligência Artificial: um guia prático para entender, construir e colocar agentes de IA em produção* |
 | Público | Graduação, pós, profissionais de TI | Brasileiros curiosos, estudantes, gestores, devs iniciantes |
 | Tom | Acadêmico-técnico | Conversado, "você", sem jargão desnecessário |
 | Código | Inglês (identificadores, comentários, traces) | Português |
 | Formato | Livro-texto | Ebook KDP (e impresso 6×9) |
+| Tamanho | 17 partes, 153 capítulos | Volume único essencial: 7 partes, 27 capítulos, 2 apêndices, cerca de 306 páginas, 26 figuras; inclui "Sobre esta edição" e "Sobre o autor" |
+| Arquivo atual | `Agentes_IA_v26.docx` | `Agentes_IA_Essencial_v1.docx` |
 
 ## 2. Processo
 
@@ -19,6 +21,7 @@ Documento de referência para manter a consistência entre partes, versões e co
 3. Correções aplicadas diretamente no docx (nova versão numerada: v11, v12...).
 4. Código novo entra neste repositório com testes; a suíte inteira roda a cada lote.
 5. Com a versão técnica completa: passada global de consistência e curadoria da versão comercial.
+6. Versão comercial: um único volume essencial (decisão de set. 2026), escrito capítulo a capítulo, salvando o docx após cada capítulo.
 
 ## 3. Formato do capítulo (técnico)
 
@@ -45,7 +48,8 @@ Documento de referência para manter a consistência entre partes, versões e co
 - **Dona Lurdes:** cliente fiel; prefere bolo sem lactose; retira às 9h.
 - **Seu Antônio:** cliente; retira às 7h.
 - **Júlia:** funcionária nova (capacidade × autoridade × autonomia).
-- Analogias já usadas (não repetir com outro sentido): bancada = contexto; comanda = estado; caderno = memória; câmera = histórico/logs; cardápio = catálogo de ferramentas; garçom/gerente/cozinha = modelo/controlador/executor; farmácia = três conferências; botão do elevador = idempotência; prova com consulta = RAG; triagem e entrevista = retrieval e reranking.
+- **Seu Zé:** forneiro da padaria (essencial, Parte III: passagem de bastão).
+- Analogias já usadas (não repetir com outro sentido): bancada = contexto; comanda = estado; caderno = memória; câmera = histórico/logs; cardápio = catálogo de ferramentas; garçom/gerente/cozinha = modelo/controlador/executor; farmácia = três conferências; botão do elevador = idempotência; prova com consulta = RAG; triagem e entrevista = retrieval e reranking; checklist do piloto = workflow; save do videogame = checkpoint; tomada padrão de três pinos = MCP; vendedor do moinho = agente externo (A2A); acompanhamento do pedido no app de delivery = AG-UI; telefone sem fio = perda de informação entre agentes.
 
 ## 6. Decisões técnicas canônicas
 
@@ -67,3 +71,30 @@ Documento de referência para manter a consistência entre partes, versões e co
 - [ ] Consistência com as decisões da seção 6 e com as partes anteriores (remissões corretas).
 - [ ] Formato da seção 3; tabelas e diagramas legíveis em tela pequena.
 - [ ] Pendências anotadas em `docs/PENDENCIAS.md`.
+
+## 8. Versão comercial essencial
+
+Decisão de setembro de 2026: em vez de converter as 17 partes técnicas, a versão comercial é um volume único de 330 a 360 páginas. As Partes I–V do comercial v1 (271 p.) foram condensadas para cerca de 140 páginas; as Partes VI–XVII da técnica viram 17 capítulos novos, e três capítulos foram escritos só para o essencial (19, 20 e a primeira metade do 24).
+
+| Parte | Capítulos | Origem |
+|---|---|---|
+| I Entendendo agentes | 1–5 | comercial v1, caps. 1–15 |
+| II Mãos, memória e conhecimento | 6–11 | comercial v1, caps. 16–42 |
+| III Processos e equipes | 12–14 | técnica VI e VII |
+| IV Conectando tudo | 15–17 | técnica VIII |
+| V Agentes no trabalho | 18–20 | técnica X; 19 (WhatsApp e voz) e 20 (saúde, educação, serviço público) escritos para o essencial |
+| VI Confiança | 21–23 | técnica XI, XII e XIII |
+| VII Produção e futuro | 24–27, apêndices A e B, glossário | 24 inclui "por onde começar na empresa" (novo); técnica IX, XIV–XVII; modelos abertos no 25 |
+
+- Um glossário só, no fim do livro; os fechamentos de parte trazem encerramento e "Para ir além", sem glossário próprio.
+- Cinco capítulos "Mão na massa" (5 atendente, 8 encomendas com aprovação, 11 respostas com fonte, 13 encomenda do casamento, 26 projeto final) e mensagens JSON de MCP no 15. Código em `comercial/`, com testes e saída idêntica à impressa.
+- Saíram do texto (continuam no repositório): código do ar-condicionado e do caderno de memória; tipos clássicos de agente, BDI e PEAS; detalhes de runtime, filas e multi-region; comparação detalhada de frameworks.
+- Fio narrativo: a padaria cresce (encomendas grandes com aprovação, equipe de agentes, fornecedores conectados por protocolo, tentativa de golpe, sistema completo no projeto final).
+- Geração do docx: `essencial/build.py` e `make.py`; cada capítulo é um arquivo de marcação em `essencial/cap/`. `@KEEP` reaproveita elementos do comercial v1 sem alteração; `@SUB` ajusta remissões dentro deles; figuras reaproveitadas são renumeradas com `@FIG`.
+- Estados: Bloqueado = esperando algo de fora (aprovação, pagamento, resposta); Pausado = parada decidida por alguém (caps. 4, 8, 12, 13).
+- Tamanho dos capítulos: nenhum abaixo de ~8 páginas; capítulos muito curtos foram fundidos (equipes, agentes especializados, avaliação+observabilidade, começar+produção).
+- Kindle: caixas são parágrafos com borda e fundo (não tabelas); sumário com links para os capítulos; primeira linha das tabelas marcada como cabeçalho; texto alternativo das figuras igual à legenda. Tudo isso é feito automaticamente por `postprocess()` em `build.py`.
+- Datas: fatos de plataforma são conferidos na data registrada na página "Sobre esta edição"; evitar "em setembro de 2026" espalhado no texto (exceto em quadros que precisam de data própria, como o da disputa Meta × CADE).
+- Figuras novas: `essencial/figs/make_figs.py` (matplotlib, paleta do guia), inseridas com `@IMG caminho|n.m|legenda`.
+- Repositório: github.com/humbertomoura/agentes-ia-livro — código sob licença MIT (LICENSE-CODE); texto e figuras com direitos reservados. Mantém README, ERRATA.md e CHANGELOG.md. (citado no "Antes de começar", no apêndice A e na página da edição).
+- Toda remissão aponta para a numeração nova (conferir com a varredura de "capítulo N" e "Parte N" a cada capítulo).
