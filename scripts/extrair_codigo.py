@@ -4,7 +4,8 @@ Uso:
     python scripts/extrair_codigo.py            # regrava tecnico/*.py a partir do docx
     python scripts/extrair_codigo.py --check    # só compara; sai com código 1 se divergir
 
-Usa apenas a biblioteca padrão. O docx esperado fica em manuscrito/.
+Se o manuscrito não estiver em manuscrito/, a verificação é ignorada (útil no CI).
+Usa apenas a biblioteca padrão.
 """
 from __future__ import annotations
 
@@ -18,7 +19,6 @@ import xml.etree.ElementTree as ET
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
-# arquivo em tecnico/ -> início do título do capítulo (Heading 1)
 CAPITULOS = {
     "cap51_workflow_duravel": "Implementando um workflow durável",
     "cap60_runtime_multiagente": "Implementando um runtime multiagente",
@@ -37,12 +37,12 @@ CAPITULOS = {
 SHELL = re.compile(r"\s*(python -m|pip |\$ |uv )")
 
 
-def manuscrito() -> pathlib.Path:
-    docs = sorted((ROOT / "manuscrito").glob("Agentes_IA_*.docx"),
-                  key=lambda p: int(re.search(r"v(\d+)", p.name).group(1)))
-    if not docs:
-        sys.exit("nenhum manuscrito em manuscrito/")
-    return docs[-1]
+def manuscrito() -> pathlib.Path | None:
+    docs = sorted(
+        (ROOT / "manuscrito").glob("Agentes_IA_v*.docx"),
+        key=lambda p: int(re.search(r"v(\d+)", p.name).group(1)),
+    )
+    return docs[-1] if docs else None
 
 
 def paragrafos(path: pathlib.Path) -> list[tuple[str, str]]:
@@ -50,7 +50,7 @@ def paragrafos(path: pathlib.Path) -> list[tuple[str, str]]:
     out = []
     for el in root.find(W + "body"):
         if el.tag != W + "p":
-            out.append(("", ""))  # tabela interrompe bloco de código
+            out.append(("", ""))
             continue
         st = el.find(f"{W}pPr/{W}pStyle")
         style = st.get(W + "val") if st is not None else ""
@@ -73,9 +73,11 @@ def listagem(paras, titulo: str, nome: str) -> str:
         blocos.append(atual)
     corpo = "\n\n".join("\n".join(b) for b in blocos if not SHELL.match(b[0]))
     cap = re.search(r"\d+", nome).group(0)
-    cabecalho = (f'"""Código do Capítulo {cap} — {paras[inicio][1]}.\n\n'
-                 'Extraído da versão técnica v26 do livro "Agentes de Inteligência Artificial".\n'
-                 'Mantenha este arquivo idêntico à listagem publicada no manuscrito.\n"""\n')
+    cabecalho = (
+        f'"""Código do Capítulo {cap} — {paras[inicio][1]}.\n\n'
+        'Extraído da versão técnica v26 do livro "Agentes de Inteligência Artificial".\n'
+        'Mantenha este arquivo idêntico à listagem publicada no manuscrito.\n"""\n'
+    )
     linhas = corpo.split("\n")
     futuro = [l for l in linhas if l.startswith("from __future__")]
     if futuro:
@@ -85,7 +87,6 @@ def listagem(paras, titulo: str, nome: str) -> str:
 
 
 def corpo(texto: str) -> str:
-    """Ignora o docstring de cabeçalho (que cita a versão) na comparação."""
     return texto.split('"""', 2)[-1]
 
 
@@ -93,7 +94,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
-    paras = paragrafos(manuscrito())
+
+    doc = manuscrito()
+    if doc is None:
+        print("manuscrito não encontrado — verificação ignorada")
+        return 0
+
+    paras = paragrafos(doc)
     divergentes = []
     for nome, titulo in CAPITULOS.items():
         novo = listagem(paras, titulo, nome)
