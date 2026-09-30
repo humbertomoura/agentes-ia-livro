@@ -39,7 +39,7 @@ SHELL = re.compile(r"\s*(python -m|pip |\$ |uv )")
 
 def manuscrito() -> pathlib.Path | None:
     docs = sorted(
-        (ROOT / "manuscrito").glob("Agentes_IA_v*.docx"),
+        (ROOT / "manuscrito").glob("Agentes_IA*.docx"),
         key=lambda p: int(re.search(r"v(\d+)", p.name).group(1)),
     )
     return docs[-1] if docs else None
