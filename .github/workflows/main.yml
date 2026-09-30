@@ -1,0 +1,8 @@
+- name: Run tests
+  run: pytest -q
+
+- name: Run commercial book tests
+  run: ./tests_comercial_novos.sh
+
+- name: Check manuscript/code synchronization
+  run: python scripts/extrair_codigo.py --check
