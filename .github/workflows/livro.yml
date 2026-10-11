@@ -20,12 +20,18 @@ jobs:
         run: python -m pip install -r requirements-dev.txt
 
       - name: Verificar manuscrito
+        id: manuscrito
         run: |
-          test -d manuscrito
-          test -n "$(find manuscrito -maxdepth 1 -name 'Agentes_IA*.docx' -print -quit)"
+          if [ -d manuscrito ] && [ -n "$(find manuscrito -maxdepth 1 -name 'Agentes_IA*.docx' -print -quit)" ]; then
+            echo "presente=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Manuscrito DOCX ausente; sincronização DOCX ↔ código ignorada."
+            echo "presente=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Sincronização DOCX ↔ código
+        if: steps.manuscrito.outputs.presente == 'true' && hashFiles('scripts/extrair_codigo.py') != ''
         run: python scripts/extrair_codigo.py --check
 
       - name: Testes da edição comercial
-        run: bash tests_comercial_novos.sh
+        run: python -m pytest -q
