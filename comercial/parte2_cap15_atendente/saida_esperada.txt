@@ -1,0 +1,6 @@
+[1] consultar_agenda:sábado -> {'vagas': 0}
+[1] consultar_preco:bolo de cenoura -> {'preco': 60.0}
+[2] consultar_agenda:sexta -> {'vagas': 3}
+estado: SUCESSO
+resposta:
+Sábado lotou, mas sexta tem vaga! Fica R$ 60,00. Posso anotar?

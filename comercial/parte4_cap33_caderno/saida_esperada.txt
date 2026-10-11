@@ -1,0 +1,18 @@
+    sabor: NOVA
+ retirada: NOVA
+ retirada: NADA A FAZER
+ retirada: ATUALIZADA
+pagamento: BLOQUEADO (segredo)
+ desconto: BLOQUEADO (parece regra, não fato)
+   viagem: NOVA
+ retirada: NOVA
+
+O que o agente lembra da Dona Lurdes:
+  [retirada] agora retira às 9h
+  [sabor] prefere bolo sem lactose
+Contexto montado com 5 blocos
+
+Resumo acumulado:
+  - msg 1, msg 2, msg 3, msg 4, msg 5
+  - msg 6, msg 7, msg 8, msg 9, msg 10
+Mantidas: ['msg 11', 'msg 12']
