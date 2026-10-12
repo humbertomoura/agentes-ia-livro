@@ -1,10 +1,24 @@
+<div align="center">
+  <img src="assets/capa-agentes-ia.jpg" alt="Capa do livro Agentes de IA na Prática: Do problema à solução em Python" width="235">
+</div>
+
 # Agentes de IA na Prática
 
 **Do problema à solução em Python — código-fonte e exemplos do livro**
 
-> **Todo mundo fala de agentes de IA. Este livro mostra como construir um, passo a passo.**
+![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
+[![Licença MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-2E7D32)](LICENSE)
+![Cinco exemplos práticos](https://img.shields.io/badge/Exemplos%20pr%C3%A1ticos-5-555555)
 
-Aqui você encontra os exemplos de *Agentes de IA na Prática: Do problema à solução em Python*, de **Humberto Jorge de Moura Costa**. A proposta é compreender e implementar os mecanismos internos de um agente antes de depender das abstrações de um framework.
+> **Todo mundo fala de agentes de IA. Este livro mostra como construir um, passo a passo.**
+>
+> Aqui você encontra os exemplos de *Agentes de IA na Prática: Do problema à solução em Python*, de **Humberto Jorge de Moura Costa**. A proposta é compreender e implementar os mecanismos internos de um agente antes de depender das abstrações de um framework.
+
+**Edições do livro:** Kindle e capa comum. *Os links oficiais de compra serão adicionados aqui.*
+
+<!-- Quando as páginas estiverem disponíveis, substitua a linha acima por:
+**Onde comprar:** [Kindle](COLE_AQUI_O_LINK_DO_KINDLE) · [Livro impresso](COLE_AQUI_O_LINK_DO_IMPRESSO)
+-->
 
 O fio condutor é a **padaria da Dona Cida**, um cenário didático que evolui de decisões simples para ferramentas, aprovação humana, memória e consulta a documentos.
 
@@ -17,21 +31,21 @@ O fio condutor é a **padaria da Dona Cida**, um cenário didático que evolui d
 
 ## Exemplos por capítulo
 
-| Parte | Capítulo | O que você vai explorar |
-|---|---:|---|
-| **1 · Fundamentos** | 8 | Agente reativo baseado em regras, observação e estado interno, sem LLM |
-| **2 · Ciclo do agente** | 15 | Chamadas de ferramentas, controle do ciclo e comparação entre simulação e LLM real |
-| **3 · Ferramentas** | 24 | Validação, aprovação humana, retomada e prevenção de operações duplicadas |
-| **4 · Contexto e memória** | 33 | Seleção, atualização, validade, controle de acesso e compactação da memória |
-| **5 · Recuperação de informações** | 42 | Busca didática em documentos, filtros de acesso, citações e respostas sem evidências |
+| Parte | Capítulo | O que você vai explorar | Pasta |
+|---|---:|---|---|
+| **1 · Fundamentos** | 8 | Agente reativo baseado em regras, observação e estado interno, sem LLM | [`parte1_cap08_ar_condicionado`](comercial/parte1_cap08_ar_condicionado) |
+| **2 · Ciclo do agente** | 15 | Chamadas de ferramentas, controle do ciclo e comparação entre simulação e uso de LLM real | [`parte2_cap15_atendente`](comercial/parte2_cap15_atendente) |
+| **3 · Ferramentas** | 24 | Validação, aprovação humana, retomada e prevenção de operações duplicadas | [`parte3_cap24_ferramentas`](comercial/parte3_cap24_ferramentas) |
+| **4 · Contexto e memória** | 33 | Seleção, atualização, validade, controle de acesso e compactação da memória | [`parte4_cap33_caderno`](comercial/parte4_cap33_caderno) |
+| **5 · Recuperação de informações** | 42 | Busca didática em documentos, filtros de acesso, citações e respostas sem evidências | [`parte5_cap42_pasta`](comercial/parte5_cap42_pasta) |
 
 Cada pasta contém um arquivo `saida_esperada.txt`. Os testes conferem se as cinco demonstrações locais produzem as saídas registradas nesses arquivos.
 
 ## Comece por aqui
 
-Você precisa de **Python 3.11 ou superior**. O apêndice *Prepare seu ambiente*, no livro, explica a configuração passo a passo.
+### 1. Prepare o ambiente
 
-Clone o repositório, crie um ambiente virtual e instale as dependências:
+Você precisa de **Python 3.11 ou superior** e, para clonar o repositório, do Git. O apêndice *Prepare seu ambiente*, no final do livro, explica a configuração passo a passo.
 
 ```bash
 git clone https://github.com/humbertomoura/agentes-ia-livro.git
@@ -39,19 +53,35 @@ cd agentes-ia-livro
 python -m venv .venv
 ```
 
-No Linux ou macOS, ative o ambiente com `source .venv/bin/activate`. No Windows PowerShell, use `.\.venv\Scripts\Activate.ps1`.
+Ative o ambiente virtual **conforme seu sistema operacional**:
+
+**Linux/macOS**
+
+```bash
+source .venv/bin/activate
+```
+
+**Windows (PowerShell)**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Instale as dependências necessárias para executar as demonstrações e os testes:
 
 ```bash
 python -m pip install -r requirements-dev.txt
 ```
 
-Execute o primeiro exemplo a partir da raiz do repositório:
+### 2. Execute o primeiro exemplo
+
+A partir da **raiz do repositório**:
 
 ```bash
 python comercial/parte1_cap08_ar_condicionado/rodar.py
 ```
 
-Experimente também os demais capítulos:
+Experimente também os demais exemplos:
 
 ```bash
 python comercial/parte2_cap15_atendente/simulado.py
@@ -64,7 +94,7 @@ Esses cinco comandos não exigem chave de API nem fazem chamadas a um LLM extern
 
 ### Sem instalar nada: Google Colab
 
-Abra um notebook no Google Colab e execute:
+Abra um notebook no [Google Colab](https://colab.research.google.com/) e execute em uma célula:
 
 ```python
 !git clone https://github.com/humbertomoura/agentes-ia-livro.git
@@ -72,42 +102,59 @@ Abra um notebook no Google Colab e execute:
 !python comercial/parte1_cap08_ar_condicionado/rodar.py
 ```
 
+Você pode trocar o caminho do último comando pelo de qualquer outro exemplo didático da tabela acima.
+
 ## Experimento opcional: LLM real (capítulo 15)
 
-O arquivo `comercial/parte2_cap15_atendente/real.py` demonstra o uso de ferramentas por meio da API da OpenAI. **Este exemplo exige chave de API, acesso à internet e pode gerar custos.**
+O arquivo [`real.py`](comercial/parte2_cap15_atendente/real.py) demonstra o ciclo de uso de ferramentas por meio da API da OpenAI. **Este é o único exemplo que exige chave de API, acesso à internet e pode gerar custos.**
 
-Defina `OPENAI_API_KEY` e `OPENAI_MODEL` com sua chave e o identificador de um modelo compatível com a Responses API e chamadas de ferramentas. Em seguida, execute:
+No **Linux/macOS**, defina as variáveis de ambiente:
+
+```bash
+export OPENAI_API_KEY="SUA_CHAVE"
+export OPENAI_MODEL="ID_DE_UM_MODELO_COMPATIVEL"
+```
+
+No **Windows (PowerShell)**:
+
+```powershell
+$env:OPENAI_API_KEY = "SUA_CHAVE"
+$env:OPENAI_MODEL = "ID_DE_UM_MODELO_COMPATIVEL"
+```
+
+Escolha um modelo ao qual sua conta tenha acesso e que ofereça suporte a chamadas de ferramentas pela Responses API. Consulte a [documentação de modelos da OpenAI](https://platform.openai.com/docs/models). Substitua os valores ilustrativos pelos seus dados e, **a partir da raiz do repositório**, execute:
 
 ```bash
 python comercial/parte2_cap15_atendente/real.py
 ```
 
-**Segurança:** nunca publique sua chave de API. As respostas do LLM real podem variar entre execuções.
+> **Segurança:** nunca inclua sua chave no código-fonte nem a envie ao GitHub. Diferentemente dos exemplos simulados, a resposta do LLM real pode variar entre execuções.
 
 ## Testes e reprodução dos resultados
 
-Na raiz do repositório, execute:
+Para executar os testes automatizados, a partir da raiz do repositório:
 
 ```bash
 python -m pytest -q
 ```
 
-Os testes automatizados comparam as saídas dos cinco exemplos didáticos, verificam o ciclo de ferramentas com um cliente simulado e testam uma regra de isolamento de informações entre clientes.
+Os testes:
 
-Não é necessário acesso à internet nem chave de API durante a execução dos testes.
+- Comparam a saída de cada uma das cinco demonstrações locais com seu `saida_esperada.txt`.
+- Exercitam o fluxo de ferramentas do capítulo 15 com um **cliente simulado**, sem chamar a API externa.
+- Verificam uma regra de isolamento de informações de clientes no exemplo de memória.
 
-## Encontrou um problema?
+**Os testes não precisam de internet nem de chave de API** durante a execução. Isso não significa que a integração ao serviço externo tenha sido testada em tempo real.
 
-Abra uma [issue no GitHub](https://github.com/humbertomoura/agentes-ia-livro/issues) ou envie uma mensagem para **livro@humbertomoura.com.br**.
+## Encontrou um problema ou quer sugerir uma melhoria?
 
-Informe, sempre que possível, o capítulo, o arquivo envolvido, sua versão do Python, o comportamento observado e a saída esperada.
+Abra uma [issue](https://github.com/humbertomoura/agentes-ia-livro/issues) ou escreva para **livro@humbertomoura.com.br**. Sempre que possível, informe o capítulo, o arquivo envolvido, sua versão do Python, o comportamento observado e a saída esperada.
 
 ## Licença e direitos autorais
 
-O **código-fonte** está disponível sob a licença MIT (consulte `LICENSE`). O **texto, as figuras e os demais conteúdos editoriais do livro** não fazem parte dessa licença e têm seus direitos reservados.
+O **código-fonte** está disponível sob a [licença MIT](LICENSE). O **texto, as figuras e demais conteúdos editoriais do livro** não fazem parte dessa licença e têm seus direitos reservados.
 
 ---
 
-**Agentes de IA na Prática — Do problema à solução em Python**
-
+**Agentes de IA na Prática — Do problema à solução em Python**  
 *Humberto Jorge de Moura Costa · Professor e pesquisador em Computação*
