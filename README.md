@@ -16,9 +16,14 @@
 
 **Edições do livro:** Kindle e capa comum. *Os links oficiais de compra serão adicionados aqui.*
 
-<!-- Quando as páginas estiverem disponíveis, substitua a linha acima por:
-**Onde comprar:** [Kindle](COLE_AQUI_O_LINK_DO_KINDLE) · [Livro impresso](COLE_AQUI_O_LINK_DO_IMPRESSO)
--->
+## Adquira o livro
+**Onde comprar:** [Edição Kindle — Amazon Brasil](https://www.amazon.com.br/dp/B0HMZ3N4C4) · [Livro impresso](disponível em breve)
+
+
+O livro apresenta os fundamentos e a construção progressiva
+de agentes de IA em Python. Este repositório disponibiliza
+os exemplos práticos e os testes automatizados.
+
 
 O fio condutor é a **padaria da Dona Cida**, um cenário didático que evolui de decisões simples para ferramentas, aprovação humana, memória e consulta a documentos.
 
