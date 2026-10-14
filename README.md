@@ -1,5 +1,7 @@
 <div align="center">
+  <a href="https://www.amazon.com.br/dp/B0HMZ3N4C4">
   <img src="assets/capa-agentes-ia.jpg" alt="Capa do livro Agentes de IA na Prática: Do problema à solução em Python" width="235">
+  </a>
 </div>
 
 # Agentes de IA na Prática
@@ -14,10 +16,14 @@
 >
 > Aqui você encontra os exemplos de *Agentes de IA na Prática: Do problema à solução em Python*, de **Humberto Jorge de Moura Costa**. A proposta é compreender e implementar os mecanismos internos de um agente antes de depender das abstrações de um framework.
 
-**Edições do livro:** Kindle e capa comum. *Os links oficiais de compra serão adicionados aqui.*
+**Edições do livro:** 
 
-## Adquira o livro
-**Onde comprar:** [Edição Kindle — Amazon Brasil](https://www.amazon.com.br/dp/B0HMZ3N4C4) · [Livro impresso](disponível em breve)
+[Kindle — Amazon Brasil](https://www.amazon.com.br/dp/B0HMZ3N4C4)
+
+[Livro impresso](disponível em breve)
+
+
+
 
 
 O livro apresenta os fundamentos e a construção progressiva
