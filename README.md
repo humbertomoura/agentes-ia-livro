@@ -20,7 +20,7 @@
 
 [Kindle — Amazon Brasil](https://www.amazon.com.br/dp/B0HMZ3N4C4)
 
-[Livro impresso](disponível em breve)
+[Livro impresso - Amazon EUA](https://www.amazon.com/-/pt/dp/B0HN46ZQBF)
 
 
 
