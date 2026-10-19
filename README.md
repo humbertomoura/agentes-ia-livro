@@ -24,10 +24,6 @@
 
 [Livro impresso - Amazon EUA](https://www.amazon.com/-/pt/dp/B0HN46ZQBF)
 
-
-
-
-
 O livro apresenta os fundamentos e a construção progressiva
 de agentes de IA em Python. Este repositório disponibiliza
 os exemplos práticos e os testes automatizados.
