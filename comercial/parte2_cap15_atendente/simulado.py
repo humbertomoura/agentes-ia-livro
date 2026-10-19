@@ -2,8 +2,12 @@ from ferramentas import FERRAMENTAS
 
 
 def chave(nome, args):
-    # ex.: "consultar_agenda:sábado"
-    return nome + ":" + ",".join(args.values())
+    # ex.: "consultar_agenda(dia='sábado')": nomes dos campos,
+    # ordem fixa e valores entre aspas. Só indexa
+    # resultados; não é uma chave de idempotência.
+    campos = ", ".join(f"{k}={v!r}"
+                       for k, v in sorted(args.items()))
+    return f"{nome}({campos})"
 
 
 def reais(valor):
@@ -17,14 +21,14 @@ def modelo_simulado(pedido, vistos):
         return [("consultar_agenda", {"dia": "sábado"}),
                 ("consultar_preco",
                  {"produto": "bolo de cenoura"})], None
-    preco = vistos["consultar_preco:bolo de cenoura"]
+    preco = vistos["consultar_preco(produto='bolo de cenoura')"]
     preco = reais(preco["preco"])
-    if vistos["consultar_agenda:sábado"]["vagas"] > 0:
+    if vistos["consultar_agenda(dia='sábado')"]["vagas"] > 0:
         return [], f"Tem vaga no sábado! Fica {preco}."
-    if "consultar_agenda:sexta" not in vistos:
+    if "consultar_agenda(dia='sexta')" not in vistos:
         return [("consultar_agenda",
                  {"dia": "sexta"})], None
-    if vistos["consultar_agenda:sexta"]["vagas"] > 0:
+    if vistos["consultar_agenda(dia='sexta')"]["vagas"] > 0:
         return [], (f"Sábado lotou, mas sexta tem vaga! "
                     f"Fica {preco}. Posso anotar?")
     return [], "Sexta e sábado lotados. Outro dia?"
@@ -35,7 +39,8 @@ def rodar_agente(pedido, decidir, max_voltas=5):
     for volta in range(1, max_voltas + 1):
         pedidos, resposta = decidir(pedido, vistos)
         if not pedidos:               # o modelo terminou
-            return "SUCESSO", resposta, trilha
+            estado = "SUCESSO" if resposta else "FALHA"
+            return estado, resposta, trilha
         for nome, args in pedidos:
             if nome in FERRAMENTAS:   # portão simples
                 resultado = FERRAMENTAS[nome](**args)

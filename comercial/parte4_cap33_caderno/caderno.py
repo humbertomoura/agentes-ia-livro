@@ -24,8 +24,10 @@ def anotar(cliente, assunto, texto, fonte, ate=None):
         "select * from caderno where cliente=? and "
         "assunto=? and ativa=1", (cliente, assunto)
     ).fetchone()
-    if atual and atual["texto"] == texto:
-        return "NADA A FAZER"
+    igual = (texto, fonte, ate)
+    if atual and tuple(atual[k] for k in (
+            "texto", "fonte", "ate")) == igual:
+        return "NADA A FAZER"       # nada mudou
     antiga = None
     if atual:                   # não apaga: substitui
         antiga = atual["id"]

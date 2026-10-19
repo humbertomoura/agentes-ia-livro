@@ -9,7 +9,8 @@ VAZIAS = {"a", "o", "as", "os", "de", "da", "do", "das",
           "uma", "por", "para", "com", "ao"}
 
 def palavras(texto):
-    """Minúsculas, sem acento nem pontuação."""
+    """Minúsculas, sem acento e sem a maior parte da
+    pontuação (o hífen de códigos como FX-200 fica)."""
     t = unicodedata.normalize("NFKD", texto)
     t = t.encode("ascii", "ignore").decode().lower()
     return [p for p in re.findall(r"\w+(?:[.-]\w+)*", t)

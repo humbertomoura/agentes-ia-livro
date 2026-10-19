@@ -6,7 +6,9 @@ PRECOS = {"bolo de cenoura": 60.0,
 
 
 def consultar_agenda(dia):
-    return {"vagas": CAPACIDADE - AGENDA.get(dia, 0)}
+    if dia not in AGENDA:       # desconhecido não é "livre"
+        return {"erro": f"não aceitamos encomendas para {dia}"}
+    return {"vagas": CAPACIDADE - AGENDA[dia]}
 
 
 def consultar_preco(produto):

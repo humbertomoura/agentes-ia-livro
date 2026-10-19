@@ -12,6 +12,7 @@ gerencia: Tem multa se a farinha atrasar?
 atendente: Quem ganhou a Copa de 2002?
   (nenhuma evidência)
 
-OK: Asse por 40 minutos a 180 graus [E1].
+ETIQUETAS OK: Asse por 40 minutos a 180 graus [E1].
 RESPOSTA SEM FONTE VÁLIDA: Asse por 50 minutos [E7].
 NÃO ENCONTREI: Não achei na pasta.
+ETIQUETAS OK: Foi a avó da Dona Cida que inventou [E1].

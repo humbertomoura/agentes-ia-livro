@@ -27,4 +27,4 @@ def responder(pergunta, perfil, gerar):
     existem = {e["id"] for e in evidencias}
     if not citadas or citadas - existem:
         return "RESPOSTA SEM FONTE VÁLIDA", resposta
-    return "OK", resposta
+    return "ETIQUETAS OK", resposta  # só existem; não prova

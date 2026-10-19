@@ -1,1 +1,3 @@
-openai>=1.40
+# A Responses API (client.responses) surgiu no openai 1.66.0.
+# Esta edição foi testada com o openai 3.35.1.
+openai>=1.66

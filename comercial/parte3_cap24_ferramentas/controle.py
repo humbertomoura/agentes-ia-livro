@@ -22,13 +22,18 @@ def resumir(r):
     return f"{dados}{extra}"
 
 
+FINAIS = {"SUCESSO", "FALHA", "LIMITE_ATINGIDO", "CANCELADO"}
+
+
 def continuar(ex, decidir, aprovados, max_voltas=6):
+    if ex.estado in FINAIS:     # execução encerrada não age mais
+        return ex
     ex.estado = "EM_ANDAMENTO"
     while ex.voltas < max_voltas:
         if not ex.pendentes:            # pede ao modelo
             pedidos, resposta = decidir(ex.vistos)
-            if not pedidos:
-                ex.estado = "SUCESSO"
+            if not pedidos:             # o modelo terminou
+                ex.estado = "SUCESSO" if resposta else "FALHA"
                 ex.resposta = resposta
                 return ex
             ex.pendentes = list(pedidos)

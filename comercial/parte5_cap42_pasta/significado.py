@@ -1,7 +1,7 @@
 from busca import palavras
 
-# "Embedding de brinquedo": palavras diferentes que
-# querem dizer a mesma coisa caem no mesmo conceito.
+# "Embedding de brinquedo": palavras relacionadas
+# caem no mesmo conceito.
 CONCEITOS = {
     "tempo": {"tempo", "minutos", "demora", "quanto"},
     "forno": {"forno", "asse", "assar", "preaqueca"},

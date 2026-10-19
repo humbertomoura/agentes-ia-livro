@@ -41,7 +41,10 @@ for volta in range(5):
     pedidos = [item for item in resposta.output
                if item.type == "function_call"]
     if not pedidos:                 # o modelo terminou
-        print(resposta.output_text)
+        texto = resposta.output_text
+        if resposta.status != "completed" or not texto:
+            texto = f"Sem resposta utilizável ({resposta.status})."
+        print(texto)
         break
     for pedido in pedidos:
         try:

@@ -28,3 +28,10 @@ for gerar in (modelo_certo, modelo_inventa):
 estado, texto = responder("Quem ganhou a Copa de 2002?",
                           "atendente", modelo_certo)
 print(f"{estado}: {texto}")
+
+def so_etiquetas(pergunta, evidencias):
+    return "Foi a avó da Dona Cida que inventou [E1]."
+
+estado, texto = responder("Quem inventou o bolo de cenoura?",
+                          "atendente", so_etiquetas)
+print(f"{estado}: {texto}")

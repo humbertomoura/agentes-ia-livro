@@ -2,7 +2,7 @@ import json
 class Item:
     def __init__(self, **kw): self.__dict__.update(kw)
 class Resp:
-    def __init__(self, output, text=""): self.output=output; self.output_text=text
+    def __init__(self, output, text=""): self.output=output; self.output_text=text; self.status="completed"
 class Responses:
     def __init__(self): self.n=0; self.log=[]
     def create(self, model, instructions, input, tools):
