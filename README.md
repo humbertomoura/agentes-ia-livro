@@ -20,6 +20,8 @@
 
 [Kindle — Amazon Brasil](https://www.amazon.com.br/dp/B0HMZ3N4C4)
 
+[Livro impresso - Brasil](https://loja.uiclap.com/titulo/ua212928)
+
 [Livro impresso - Amazon EUA](https://www.amazon.com/-/pt/dp/B0HN46ZQBF)
 
 
