@@ -12,6 +12,7 @@
 ![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
 [![Licença MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-2E7D32)](LICENSE)
 ![Cinco exemplos práticos](https://img.shields.io/badge/Exemplos%20pr%C3%A1ticos-5-555555)
+[![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/humbertomoura/agentes-ia-livro/blob/main/comece_aqui.ipynb)
 
 > **Todo mundo fala de agentes de IA. Este livro mostra como construir um, passo a passo.**
 >
@@ -51,6 +52,8 @@ O fio condutor é a **padaria da Dona Cida**, um cenário didático que evolui d
 Cada pasta contém um arquivo `saida_esperada.txt`. Os testes conferem se as cinco demonstrações locais produzem as saídas registradas nesses arquivos.
 
 ## Comece por aqui
+
+**Quer só ver funcionando?** Abra no navegador, sem instalar nada: [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/humbertomoura/agentes-ia-livro/blob/main/comece_aqui.ipynb)
 
 ### 1. Prepare o ambiente
 
@@ -103,15 +106,7 @@ Esses cinco comandos não exigem chave de API nem fazem chamadas a um LLM extern
 
 ### Sem instalar nada: Google Colab
 
-Abra um notebook no [Google Colab](https://colab.research.google.com/) e execute em uma célula:
-
-```python
-!git clone https://github.com/humbertomoura/agentes-ia-livro.git
-%cd agentes-ia-livro
-!python comercial/parte1_cap08_ar_condicionado/rodar.py
-```
-
-Você pode trocar o caminho do último comando pelo de qualquer outro exemplo didático da tabela acima.
+Clique em [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/humbertomoura/agentes-ia-livro/blob/main/comece_aqui.ipynb) e use *Ambiente de execução → Executar tudo*. O notebook [`comece_aqui.ipynb`](comece_aqui.ipynb) clona o repositório, roda os cinco exemplos e executa os testes, sem chave de API.
 
 ## Experimento opcional: LLM real (capítulo 15)
 
