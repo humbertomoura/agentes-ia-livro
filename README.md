@@ -8,6 +8,7 @@
 
 **Do problema à solução em Python — código-fonte e exemplos do livro**
 
+[![Testes](https://github.com/humbertomoura/agentes-ia-livro/actions/workflows/testes.yml/badge.svg)](https://github.com/humbertomoura/agentes-ia-livro/actions/workflows/testes.yml)
 ![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
 [![Licença MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-2E7D32)](LICENSE)
 ![Cinco exemplos práticos](https://img.shields.io/badge/Exemplos%20pr%C3%A1ticos-5-555555)
@@ -19,6 +20,8 @@
 **Edição Kindle:** [Amazon Brasil](https://www.amazon.com.br/dp/B0HMZ3N4C4).    
 
 **Livro impresso:** [Amazon Brasil](https://www.amazon.com.br/dp/B0HN46ZQBF) [UICLAP Brasil](https://loja.uiclap.com/titulo/ua212928)
+
+**🇺🇸 English edition:** [AI Agents from First Principles](https://github.com/humbertomoura/ai-agents-from-first-principles) ([Kindle](https://www.amazon.com/dp/B0HNJ65Q5S) · [Paperback](https://www.amazon.com/dp/B0HNJGRL9S))
 
 
 O livro apresenta os fundamentos e a construção progressiva
@@ -152,9 +155,17 @@ Os testes:
 
 **Os testes não precisam de internet nem de chave de API** durante a execução. Isso não significa que a integração ao serviço externo tenha sido testada em tempo real.
 
+## Sobre o autor
+
+**Humberto Jorge de Moura Costa** é doutor em Computação Aplicada (UNISINOS), IEEE Senior Member, professor e pesquisador do IFRS Campus Osório, onde coordena a Fábrica de Software e ensina IA para desenvolvedores.
+
 ## Encontrou um problema ou quer sugerir uma melhoria?
 
 Abra uma [issue](https://github.com/humbertomoura/agentes-ia-livro/issues) ou escreva para **livro@humbertomoura.com.br**. Sempre que possível, informe o capítulo, o arquivo envolvido, sua versão do Python, o comportamento observado e a saída esperada.
+
+**Se este repositório ajudou você a entender agentes, deixe uma ⭐. Isso ajuda outras pessoas a encontrá-lo.**
+
+Já leu o livro? Uma avaliação sincera na Amazon ajuda outros leitores a encontrá-lo.
 
 ## Licença e direitos autorais
 
